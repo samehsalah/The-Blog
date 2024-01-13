@@ -1,0 +1,14 @@
+<!-- create a template for the comment form that we will use in two places:
+• In the post detail template associated with the post_detail view to let users publish comments
+• In the post comment template associated with the post_comment view to display the form
+again if there are any form errors. -->
+
+<h1>Add a new comment</h1>
+
+{% comment %} we build the action URL of the HTML "form" element dynamically using the {% url %} template tag.
+ We build the URL of the post_comment view that will process the form {% endcomment %}
+<form action="{% url 'blog:post_comment' post.id %}" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Add comment"></p>
+</form>

@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Add a comment {% endblock %}
+
+{% block content %}
+<!-- If the form data submitted is not valid, the comment variable will be None. In this case, we will
+display the comment form. -->
+{% if comment %}
+<h2>Your comment has been added</h2>
+<p><a href="{{ post.get_absolute_url }}">Back to the post</a></p>
+{% else %}
+{% include "blog/post/includes/comment_form.html" %}
+{% endif %}
+
+{% endblock %}
